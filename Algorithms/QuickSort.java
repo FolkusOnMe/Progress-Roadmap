@@ -19,15 +19,45 @@ public class QuickSort{
     //have to make this 'static' apparently
     //so I can run it in the main method below.
     public static int[] Sort(int[] array){ 
+        //ok. June 12, this didn't work yesterday.
+        //I did this a few weeks ago but was basically translating from 
+        //pseudocode.. gotta try and not need to rely on that.
+        //oh it's raining now I love the rain :relieved:
+
+        //so. let's write our own pseudocode.
+        /** 
+         * procedure SortAscending(array)
+         *  for(int j = 1, j<array.length, j++) do 
+         *      int i = j-1; //one to the left of j
+         *      int pivot = array[j];
+         * 
+         *      while(i >= 0 && i > pivot) do 
+         *          //so we've examined the current array[j] and found that i is >
+         *          //now need to copy array[i] into i+1's place.
+         *          array[i+1] = a[i];
+         *          //and decrement i
+         *          i--;
+         *      end while 
+         *      //after the while, we then need to put the pivot into.. where?
+         *      //ok well i was defined inside this for so it's still accessible 
+         *      //we can do: a[i].. a[i+1?]. wait think. no it would be a[i].
+         *      a[i] = pivot;
+         *  end for
+         * ok let's try that. oh wait I just realised, 'pivot' is from the other
+         * sorting algo. insertion sort? 
+         */
+
+    
+        
         int size = array.length;
-        int pivot;
 
         for(int j=1; j<size; j++){
-            pivot = array[j];
+            int pivot = array[j];
             int i = j-1;
     
             while(i>= 0 && array[i] > pivot){
-                array[i+1] = pivot;
+                // array[i+1] = pivot; //oh well obviously this is wrong. aiyaiyai
+                array[i+1] = array[i];
                 i--;
             }
 
@@ -60,8 +90,8 @@ public class QuickSort{
         int arraySize = 10;
         int[] array = new int[arraySize];
 
+        //fill the array with random values.
         for(int i=0; i<arraySize; i++){
-            // array[i] = r; //what? what now...
             array[i] = x;
             x = r.nextInt(randomBound);
         }
@@ -75,6 +105,6 @@ public class QuickSort{
 
         System.out.println(Arrays.toString(array));
         Sort(array);
-        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(array)); //this didn't work. um.
     }
 }

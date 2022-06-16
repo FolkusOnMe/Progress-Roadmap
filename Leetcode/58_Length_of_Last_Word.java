@@ -40,6 +40,12 @@ public class 58_Length_of_Last_Word {
         while(end >= 0 && s.charAt(end) == ' '){
             end--;
         }
+        //^another way to do this is to say 
+        //s = s.trim();
+        //what does this do?
+        //if s = "  hello there     "
+        //then s.trim() turns it into "hello there" 
+        //(removes the sapces before and after)
         
         while(end >= 0 && s.charAt(end) != ' '){
             result++;

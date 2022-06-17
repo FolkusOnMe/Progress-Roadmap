@@ -48,22 +48,23 @@ public class Solution9 {
         
         
         
-        if(x%9 <= 9){return true;}
-        else if(x<0){result = false;} 
+        if(x<0){return false;}
+        else if(x <= 9){return true;}
+        else if(x%10 == 0){return false;}
         else {
             Stack<Integer> theStack = new Stack<Integer>();
-            while(x>=10){
+            while(x>10){
                 
-                if(x==10){
-                    theStack.push(0);
-                    theStack.push(1);
-                    break;
-                }
+                // if(x==10){
+                //     theStack.push(0);
+                //     theStack.push(1);
+                //     break;
+                // }
                 
                 theStack.push(x%10);
-                x = x%10;
+                x = x/10;
                 if(x<10){
-                    theStack.push(x);
+                    theStack.push(x%10);
                 }
             }
             
